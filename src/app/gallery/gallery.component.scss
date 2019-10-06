@@ -1,0 +1,7 @@
+button {
+    margin-right: 1em;
+}
+
+::ng-deep .gallery .ngx-gallery-image.ngx-gallery-active {
+    z-index: 0 !important;
+}

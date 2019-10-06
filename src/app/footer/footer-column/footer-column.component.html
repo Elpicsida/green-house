@@ -1,0 +1,10 @@
+<div class="footer-column">
+    <div class="footer-title">
+      <p>{{Item.Title || translate}}</p>
+    </div>
+    <div *ngFor="let link of Item.Links" class="footer-section">
+      <a *ngIf="link.Url" [attr.href]="link.Url" class="footer-link">{{link.Label || translate }}</a>
+      <p *ngIf="!link.Url" class="footer-text">{{link.Label}}</p>
+      <i class="material-icons">{{link.IconName}}</i>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="top-panel">
+  <header class="header">
+    <a href="/" class="logo">Zielony Domek</a>
+    <a (click)="changeToPolish()">{{ 'language.polish' | translate }}</a>
+    <a (click)="changeToEnglish()">{{ 'language.english' | translate }}</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a routerLink="/about">{{ 'links.about' | translate }}</a></li>
+      <li><a routerLink="/gallery">{{ 'links.gallery' | translate }}</a></li>
+      <li><a routerLink="/destination">{{ 'links.destination' | translate }}</a></li>
+      <li><a routerLink="/reservations" class="no-right-margin">{{ 'links.reservations' | translate }}</a></li>
+    </ul>
+  </header> 
+</mat-toolbar>

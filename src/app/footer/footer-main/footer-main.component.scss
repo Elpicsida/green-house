@@ -1,0 +1,35 @@
+.footer-main {
+    width: 100%;
+    max-height: 240px;
+    background-color:rgb(36, 39, 41);
+    position: absolute;
+    bottom: 0px;
+} 
+
+.footer-grid {
+    max-width: 1100px;
+    margin:0px auto;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: 100%;
+}
+
+.footer-grid-element {
+    width: 100%;
+    display: flex;
+}
+
+.align-right {
+    justify-content: flex-end;
+    padding-right: 16px;
+}
+
+.align-left {
+    justify-content: flex-start;
+    padding-left: 16px;
+}
+
+.align-center  {
+    justify-content: center;
+}

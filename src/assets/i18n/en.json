@@ -1,0 +1,24 @@
+{
+    "links": {
+      "about": "About",
+      "reservations": "Reservations",
+      "gallery": "Gallery",
+      "destination": "Destination"
+    },
+    "language": {
+      "polish": "Polish",
+      "english": "English"
+    },
+    "pageContent": {
+      "about": {
+        "welcome": "Welcome",
+        "content": "Zapraszamy do Zielonego Domku, w którym przygotowaliśmy dla Państwa 8 miejsc noclegowych. Nasz domek znajduje się w cichej i spokojnej okolicy na obrzeżach Krasnobrodu. Usytuowany pod lasem jest idealnym miejscem dla osób ceniących sobie wypoczynek blisko przyrody. Domek jest ogrzewany gazowo a dodatkowo jest możliwość korzystania z kominka (po wcześniejszym uzgodnieniu). W odległości około 1,5 km. znajduje się centrum, zalew oraz przepiękny, ufundowany przez Królową Marysieńkę Sobieską, Klasztor. Zimą zaś czeka na Państwa stok narciarski Chełmowa Góra znajdujący się zaledwie 800 m. od domku. Wyposażenie naszego domku to: trzy sypialnie, salon z kominkiem, pełny aneks kuchenny, łazienka, WC, miejsca parkingowe, murowany grill, zadaszony taras, huśtawka, TV SAT, internet Wi-fi, a także Darts i wiele innych gier. Domek wyposażony jest również w naczynia kuchenne, więc wybierając się do nas, nie ma potrzeby zabierania ze sobą: talerzy, sztućców, garnków, kubków, itp. Istnieje również możliwość udostępnienia wanienki dziecięcej oraz łóżeczka."
+      }
+    },
+    "footer": {
+      "contact": "Contact",
+      "mobile-phone": "Mobile Phone",
+      "follow-us": "Follow Us"
+    }
+ }
+  
