@@ -9,7 +9,7 @@ import { FooterItem } from '../../../models/footer-item.model';
 })
 export class  FooterMainComponent implements OnInit {
 
-  private FollowUsOn: FooterItem = {
+  public FollowUsOn: FooterItem = {
     Title: 'Follow Us',
     Links: [
       { 
@@ -22,7 +22,7 @@ export class  FooterMainComponent implements OnInit {
     }]
   };
 
-  private AboutCity: FooterItem = {
+  public AboutCity: FooterItem = {
     Title: 'Krasnobród',
     Links: [
       { 
@@ -52,7 +52,7 @@ export class  FooterMainComponent implements OnInit {
     ]
   }
 
-  private Contact: FooterItem = {
+  public Contact: FooterItem = {
     Title: 'Contact',
     Links: [
       { 

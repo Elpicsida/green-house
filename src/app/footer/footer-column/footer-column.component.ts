@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FooterItem } from '../../../models/footer-item.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'footer-column',
@@ -14,7 +15,7 @@ export class FooterColumnComponent implements OnInit {
   @Input()
   public Align: "left" | "center" | "right";
    
-  constructor() { }
+  constructor(public translate: TranslateService) { }
 
   ngOnInit() {
   }

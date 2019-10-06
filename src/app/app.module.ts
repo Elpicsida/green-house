@@ -9,7 +9,6 @@ import { GalleryPageComponent } from './pages/gallery/gallery.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { MatTabsModule, MatSidenavModule, MatToolbarModule,MatIconModule, MatButtonModule  } from '@angular/material';
-import { HeaderMainComponent } from './header/header-main/header-main.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
@@ -38,7 +37,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AboutPageComponent,
     GalleryPageComponent,
     GalleryComponent,
-    HeaderMainComponent,
     MainNavComponent,
     ContentMainComponent,
     IconComponent,
