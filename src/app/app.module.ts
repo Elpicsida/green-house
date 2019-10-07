@@ -24,6 +24,7 @@ import  { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ReservationsPageComponent } from './pages/reservations/reservations.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { FooterSocialComponent } from 'src/app/footer/footer-social/footer-social.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -41,6 +42,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
     AppComponent,
     FooterMainComponent,
     FooterColumnComponent,
+    FooterSocialComponent,
     AboutPageComponent,
     GalleryPageComponent,
     GalleryComponent,
