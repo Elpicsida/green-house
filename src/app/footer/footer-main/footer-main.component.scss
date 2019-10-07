@@ -33,3 +33,19 @@
 .align-center  {
     justify-content: center;
 }
+
+@media (max-width: 768px) {
+    .align-left {
+        display: none;
+    }
+
+    .footer-grid {
+        justify-content: space-around;
+
+    }
+
+    .align-right {
+        justify-content: center;
+        padding-right: 0px;
+    }
+}

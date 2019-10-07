@@ -1,8 +1,8 @@
 <mat-toolbar color="primary" class="top-panel">
   <header class="header">
     <a href="/" class="logo">Zielony Domek</a>
-    <a (click)="changeToPolish()">{{ 'language.polish' | translate }}</a>
-    <a (click)="changeToEnglish()">{{ 'language.english' | translate }}</a>
+    <img src="./assets/img/en.png" class="flag-icon" (click)="changeToEnglish()" />
+    <img src="./assets/img/pl.png" class="flag-icon" (click)="changeToPolish()" />
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
