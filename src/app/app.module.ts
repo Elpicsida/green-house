@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FooterColumnComponent } from './footer/footer-column/footer-column.component';
@@ -27,6 +27,13 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
+}
+
+export class CustomHammerConfig extends HammerGestureConfig  {
+  overrides = {
+      pinch: { enable: false },
+      rotate: { enable: false }
+  };
 }
 
 @NgModule({
@@ -66,7 +73,9 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [
+    { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
