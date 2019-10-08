@@ -19,5 +19,15 @@
       "contact": "Kontakt",
       "mobile-phone": "Telefon komórkowy",
       "follow": "Śledź nas"
+    },
+    "attractions": {
+      "dinosaur-park": "Park Dinozaurów",
+      "museum-sacral-art": "Muzeum Sztuki Sakralnej",
+      "aviary": "Ptaszarnia",
+      "rope-park": "Park Linowy",
+      "lagoon": "Zalew",
+      "chapel": "Kapliczka",
+      "calvary": "Kalwaria",
+      "church": "Kościół"
     }
   }

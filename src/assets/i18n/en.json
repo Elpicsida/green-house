@@ -19,6 +19,16 @@
       "contact": "Contact",
       "mobile-phone": "Mobile Phone",
       "follow": "Follow Us"
+    },
+    "attractions": {
+      "dinosaur-park": "Dinosaur's Park",
+      "museum-sacral-art": "Museum Sacral's Art",
+      "aviary": "Aviary",
+      "rope-park": "Rope Park",
+      "lagoon": "Lagoon",
+      "chapel": "Chapel",
+      "calvary": "Calvary",
+      "church": "Church"
     }
  }
   

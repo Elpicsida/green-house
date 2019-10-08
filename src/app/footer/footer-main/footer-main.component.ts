@@ -9,62 +9,67 @@ import { FooterItem } from '../../../models/footer-item.model';
 })
 export class  FooterMainComponent implements OnInit {
 
-  public FollowUsOn: FooterItem = {
-    Title: 'Follow Us',
-    Links: [
-      { 
-      Label: 'Instagram',
-      Url: 'http://instagram.com'
-    },
-    { 
-      Label: 'Facebook',
-      Url: 'http://facebook.com'
-    }]
-  };
-
   public AboutCity: FooterItem = {
     Title: 'Krasnobród',
     Links: [
       { 
-        Label: 'Dinosaur\'s Park',
-        Url: 'http://dino.com'
+        Label: 'attractions.dinosaur-park',
+        Url: 'http://www.dinozaury-krasnobrod.pl/pl'
       },
       { 
-        Label: 'Museum Sacral\'s Art',
-        Url: 'http://facebook.com'
+        Label: 'attractions.museum-sacral-art',
+        Url: 'https://pl.sflcode.com/hotel-widget/aMYc97iPEjPC5GpmJrspYVSs/1/58433'
       },
       { 
-        Label: 'Birdsland',
-        Url: 'http://facebook.com'
+        Label: 'attractions.aviary',
+        Url: 'https://www.polskieszlaki.pl/ptaszarnia-w-krasnobrodzie.htm'
       },
       { 
-        Label: 'Park Linowy',
-        Url: 'http://facebook.com'
+        Label: 'attractions.rope-park',
+        Url: 'http://linowypark.pl/'
       },
       { 
-        Label: 'Zalew',
-        Url: 'http://facebook.com'
+        Label: 'attractions.lagoon',
+        Url: 'http://www.magiczneroztocze.pl/turystyka/atrakcje/7-zalew-w-krasnobrodzie'
       },
       { 
-        Label: 'Kapliczka',
-        Url: 'http://facebook.com'
-      }
-    ]
+        Label: 'attractions.chapel',
+        Url: 'http://www.magiczneroztocze.pl/turystyka/atrakcje/4-kapliczka-na-wodzie'
+      },
+      {
+        Label: "attractions.calvary",
+        Url: "https://www.polskieszlaki.pl/kalwaria-krasnobrodzka.htm"
+      },
+      {
+        Label: "attractions.church",
+        Url: "https://www.polskieszlaki.pl/kosciol-nawiedzenia-nmp-w-krasnobrodzie.htm"
+      }], 
   }
 
   public Contact: FooterItem = {
-    Title: 'Contact',
+    Title: 'footer.contact',
     Links: [
       { 
-        Label: 'Mobile Phone',
-        IconName: 'phone'
-      },
-      { 
-        Label: '533-623-162'
-      },
+      Label: 'Miejsce',
+      
+    }, {
+      Label: 'ul. Lelewela 167'
+    },
+    {
+      Label: '22-440 Krasnobród'
+    },
+    {
+      Label: 'woj. lubelskie'
+    },
     { 
-      Label: '',
-      Url: 'http://facebook.com'
+      Label: 'Mobile Phone'
+      //IconName: 'phone'
+    },
+    { 
+      Label: '605-287-874'
+    },
+    {
+      Label: '698-411-296'
     }]
   };
 
