@@ -1,5 +1,5 @@
 export class LinkModel {
-    public Label: String;
-    public Url?: String;
-    public IconName?: String;
+    public Label: string;
+    public Url?: string;
+    public IconName?: string;
 }
