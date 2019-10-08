@@ -1,5 +1,7 @@
 .top-panel {
   max-width: 100%;
+  position: relative;
+  align-items: flex-start;
 }
 
 .mat-toolbar-single-row {
@@ -142,7 +144,7 @@ mat-toolbar a {
     float: right;
     max-height: none;
   }
-  
+
   .header .menu-icon {
     display: none;
   }
