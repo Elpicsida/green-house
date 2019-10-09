@@ -17,12 +17,12 @@ const config = {
 };
 var pool = pg.Pool(config);
 
-app.use(express.static(__dirname + './../../dist/green-house/'));
+app.use(express.static(__dirname + './../dist/green-house/'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/app', function(req,res) {
-  res.sendFile(path.join(__dirname + './../../dist/green-house/index.html'));
+app.get('/', function(req,res) {
+  res.sendFile(path.join(__dirname + './../dist/green-house/index.html'));
 });
 
 app.get('/api/reservations', function (req, res, next) {
