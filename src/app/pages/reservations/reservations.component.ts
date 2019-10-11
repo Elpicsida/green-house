@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { Moment } from 'moment';
 import { MatCalendar } from '@angular/material';
 
 import * as moment from "moment";
+import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
   selector: 'reservations-page',
@@ -16,21 +17,23 @@ export class ReservationsPageComponent implements OnInit {
   calendar: MatCalendar<Moment>;
   selectedDate: Moment;
 
-  private someDateArray: Moment[];
+  private dateArray: Moment[];
   
-  constructor() { 
-    
+  constructor(private reservationService: ReservationService, private cd: ChangeDetectorRef) { 
+    this.reservationService.getReservations().then(items => {
+      var arr = [];
+      for(var i = 0 ; i < items.length; i++) {
+        arr = arr.concat(this.getDatesBetween(items[i].DateFrom, items[i].DateTo));
+      }
+      this.dateArray = arr;
+      this._setupClassFunction();
+      this.cd.detectChanges();
+      this.calendar.updateTodaysDate();
+    });
+  
   }
 
-  ngOnInit() {
-    const today= moment();
-    const tomorrow = moment().add(1, 'd');
-    const twoDaysAgo = moment().add(-2, 'd');
-    this.someDateArray = [
-      tomorrow,
-      twoDaysAgo
-    ];
-    this._setupClassFunction();
+   ngOnInit() {
   }
 
   public dateClass: (d: Moment) => any;
@@ -39,17 +42,26 @@ export class ReservationsPageComponent implements OnInit {
     this.dateClass = (d: Moment) => {
       let selected = false;
 
-      if (this.someDateArray) {
-        selected = this.someDateArray.some((item: Moment) => 
+      if (this.dateArray) {
+        selected = this.dateArray.some((item: Moment) => 
         item.isSame(d, 'year') &&
         item.isSame(d, 'month') &&
         item.isSame(d, 'day'))
-          // item.year() === d.year() 
-          // && item.date() === d.date() 
-          // && item.month() === d.month());
       }
 
       return selected ? 'day-reserved' : undefined;
     }
+  }
+
+  private getDatesBetween(startDate: Moment, endDate: Moment): Array<Moment> {
+    var dateArray = new Array();
+    var currentDate = moment(startDate);
+    
+    while (!currentDate.isAfter(endDate)) {
+        dateArray.push(moment(currentDate));
+        currentDate.add(1, 'days');
+        
+    }
+    return dateArray;
   }
 }

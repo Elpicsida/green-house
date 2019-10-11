@@ -1,0 +1,16 @@
+<p>Gallery Admin Panel</p>
+<form class="example-form">
+    <div *ngFor="let item of galleryItems">
+    <mat-form-field  class="example-full-width">
+        <input matInput placeholder="Image URL" [value]="item">
+    </mat-form-field>
+    <button mat-button>Delete ?</button>
+    </div>
+</form>
+
+<button mat-button>Add New Image</button>
+
+<button mat-button>Save Changes</button>
+<div>
+    <a routerLink="/admin">Go back to admin page</a>
+</div>
