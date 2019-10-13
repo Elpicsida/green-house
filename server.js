@@ -1,11 +1,11 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const path = require('path');
-var cors = require('cors')
-const app = express();
+const history = require('connect-history-api-fallback');
 const pg = require('pg');
+const cookieParser = require('cookie-parser');
 
-const queries = require('./sql');
+const app = express();
 
 const config = {
   user: process.env.DB_USER,
@@ -14,25 +14,23 @@ const config = {
   port: process.env.DB_PORT,
   host: process.env.DB_HOST,
   ssl: process.env.DB_SSL,
-
   max: 20
 };
+
 var pool = pg.Pool(config);
 
-var corsOptions = {
-  origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200
-}
+app.use(history({
+  verbose: true
+}));
 
-app.use(express.static(__dirname + './../../dist/green-house/'));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(cookieParser());
+app.use(express.static(__dirname + '/dist/green-house/'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-app.get('/app', function(req,res) {
-  res.sendFile(path.join(__dirname + './../../dist/green-house/index.html'));
+app.get('/app', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/green-house/index.html'));
 });
-
-app.use(cors(corsOptions));
 
 app.get('/api/reservations', function (req, res, next) {
   console.log('api triggered');
@@ -41,7 +39,7 @@ app.get('/api/reservations', function (req, res, next) {
       if(err){
           res.status(400).send(err);
       } 
-      client.query(queries.GET_RESERVATION_ITEMS, function(err, result) {
+      client.query(`SELECT "Id", "DateFrom", "DateTo" FROM public."dbo.Reservations" ORDER BY "DateFrom"`, function(err, result) {
           done();
           if(err) {
               res.status(400).send(err);
@@ -101,23 +99,24 @@ app.delete('/api/reservations/:id', function (req, res) {
 });
 
 
-app.post('/api/login', function (req, res, next) {
+app.get('/api/login', function (req, res, next) {
   console.log('api login');
-  
-  pool.connect(function(err, client, done) {
-      if(err){
-          res.status(400).send(err);
-      } 
-      client.query(queries.GET_RESERVATION_ITEMS, function(err, result) {
-          done();
-          if(err) {
-              res.status(400).send(err);
-              console.log(err);
-              return;
-          }
-          res.status(200).send(result.rows);
-      });
-  });
+  // const credentials = {
+  //   login: req.body.user,
+  //   pass: req.body.pass
+  // }
+
+  // if (credentials.login === process.env.ADMIN_USER &&
+  //     credentials.pass === process.env.ADMIN_PASS) {
+
+  //     } 
+  //console.log(credentials);
+
+  if (req.cookies) {
+    console.log(req.cookies.loginName);
+  }
+  res.cookie('loginName',"John Doe", { maxAge: 20 *60 * 1000, httpOnly: true });
+  res.send("test");
 });
 
 app.listen(process.env.PORT || 8080);
