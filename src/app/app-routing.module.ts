@@ -9,6 +9,7 @@ import { AdminComponent } from 'src/app/admin/admin.component';
 import { GalleryAdminComponent } from 'src/app/admin/gallery-admin/gallery-admin.component';
 import { ReservationsAdminComponent } from 'src/app/admin/reservations-admin/reservations-admin.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
   { path: 'about', component: AboutPageComponent},
@@ -16,14 +17,15 @@ const routes: Routes = [
   { path: 'destination', component: DestinationPageComponent},
   { path: 'reservations', component: ReservationsPageComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/gallery', component: GalleryAdminComponent },
-  { path: 'admin/reservations', component: ReservationsAdminComponent },
+  { path: 'admin/reservations', component: ReservationsAdminComponent, canActivate: [AuthGuardService] },
   { path: '', redirectTo: '/about', pathMatch: 'full' }
 ];
 
 @NgModule({
   imports:[RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuardService]
 })
 export class AppRoutingModule { }

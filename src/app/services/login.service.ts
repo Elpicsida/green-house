@@ -10,7 +10,11 @@ export class LoginService {
 
   constructor(private  httpClient: HttpClient) { }
 
-  public async authenticate(user: string, password: string): Promise<string> {
-    return this.httpClient.get<string>("http://localhost:8080/api/login").toPromise();//{ user, pass: password }).toPromise();
+  public async authenticate(user: string, password: string): Promise<{ loggedIn: boolean}> {
+    return this.httpClient.post<{ loggedIn: boolean}>("http://localhost:8080/api/login", { user, pass: password}).toPromise();
+  }
+
+  public validate(): Observable<boolean> {
+    return this.httpClient.post<boolean>("http://localhost:8080/api/validate", {});
   }
 }

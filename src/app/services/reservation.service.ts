@@ -15,9 +15,6 @@ export class ReservationService {
   }
 
   public async createReservation(model: ReservationModel): Promise<any> {
-    console.log(JSON.stringify(model));
-    //const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    
     return this.httpClient.post<any>("http://localhost:8080/api/reservations", model).toPromise();
   }
 

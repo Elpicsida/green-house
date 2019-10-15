@@ -1,4 +1,4 @@
-<div class="example-container">
+<div class="login-container">
     <div>
         <mat-form-field>
           <input matInput placeholder="Login" [(ngModel)] = "user" />
@@ -9,5 +9,8 @@
           <input type="password" matInput placeholder="Password" [(ngModel)] = "password" />
         </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" (click)="login()">Login</button>
+    <div class="error-message">
+        <p *ngIf="isErrorMessageDisplayed">Login or password are incorrect</p>
+    </div>
+    <button class="login-button" mat-flat-button color="primary" (click)="login()">Login</button>
 </div>

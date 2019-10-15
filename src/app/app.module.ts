@@ -33,6 +33,7 @@ import { ReservationsAdminComponent } from './admin/reservations-admin/reservati
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { MomentUtcDateAdapter } from './adapters/moment-utc-date-adapter';
+import { GalleryAdminViewComponent } from './admin/gallery-admin-view/gallery-admin-view.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -74,7 +75,8 @@ export const MY_FORMATS = {
     AdminComponent,
     LoginComponent,
     GalleryAdminComponent,
-    ReservationsAdminComponent
+    ReservationsAdminComponent,
+    GalleryAdminViewComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +104,7 @@ export const MY_FORMATS = {
       }
     })
   ],
+  entryComponents: [GalleryAdminViewComponent],
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
     {provide: DateAdapter, useClass: MomentUtcDateAdapter, deps: [MAT_DATE_LOCALE]},

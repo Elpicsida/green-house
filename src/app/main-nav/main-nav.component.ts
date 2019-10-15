@@ -16,7 +16,7 @@ export class MainNavComponent {
   }
 
   public changeToPolish(): void {
-    this.translate.setDefaultLang('en');
+    this.translate.setDefaultLang('pl');
     this.translate.use('pl');
   }
 
