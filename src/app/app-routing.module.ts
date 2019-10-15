@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'reservations', component: ReservationsPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
-  { path: 'admin/gallery', component: GalleryAdminComponent },
+  { path: 'admin/gallery', component: GalleryAdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/reservations', component: ReservationsAdminComponent, canActivate: [AuthGuardService] },
   { path: '', redirectTo: '/about', pathMatch: 'full' }
 ];
