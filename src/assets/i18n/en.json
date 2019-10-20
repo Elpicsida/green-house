@@ -40,7 +40,10 @@
       "send" : "Send"
     },
     "gallery": {
-      "noImages": "Brak obrazów"
+      "noImages": "No images"
+    },
+    "not-found": {
+      "url-not-found": "The page under given URL has not been found."
     }
  }
   

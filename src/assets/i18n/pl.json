@@ -41,5 +41,8 @@
     },
     "gallery": {
       "noImages": "Brak obrazów"
+    },
+    "not-found": {
+      "url-not-found": "Strona o podanym adresie URL nie istnieje."
     }
   }

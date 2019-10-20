@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { QuestionComponent } from './pages/question/question.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { NotFoundComponent } from './content/not-found/not-found.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutPageComponent},
@@ -18,10 +19,12 @@ const routes: Routes = [
   { path: 'reservations', component: ReservationsPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'question', component: QuestionComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/gallery', component: GalleryAdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/reservations', component: ReservationsAdminComponent, canActivate: [AuthGuardService] },
-  { path: '', redirectTo: '/about', pathMatch: 'full' }
+  { path: '', redirectTo: '/about', pathMatch: 'full' },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({

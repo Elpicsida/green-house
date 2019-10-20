@@ -32,6 +32,7 @@ import { MomentUtcDateAdapter } from './adapters/moment-utc-date-adapter';
 import { GalleryAdminViewComponent } from './admin/gallery-admin-view/gallery-admin-view.component';
 import { QuestionComponent } from './pages/question/question.component';
 import { UserService } from 'src/app/services/user.service';
+import { NotFoundComponent } from './content/not-found/not-found.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -71,7 +72,8 @@ export const MY_FORMATS = {
     GalleryAdminComponent,
     ReservationsAdminComponent,
     GalleryAdminViewComponent,
-    QuestionComponent
+    QuestionComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
