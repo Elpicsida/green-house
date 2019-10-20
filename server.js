@@ -4,7 +4,7 @@ const path = require('path');
 const history = require('connect-history-api-fallback');
 const pg = require('pg');
 const cookieParser = require('cookie-parser');
-var nodemailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -35,8 +35,6 @@ app.get('/app', function(req, res) {
 });
 
 app.get('/api/reservations', function (req, res, next) {
-  console.log('api triggered');
-  
   pool.connect(function(err, client, done) {
       if(err){
           res.status(400).send(err);
@@ -65,21 +63,15 @@ app.post('/api/reservations', function (req, res, next) {
     DateTo : req.body.DateTo
   }
 
- console.log(req.body);
   pool.connect((err, client, done) => {
     const query = 'INSERT INTO "dbo.Reservations"("DateFrom", "DateTo") VALUES ($1, $2) RETURNING "Id"';
     const values = [data.DateFrom, data.DateTo];
-    console.log("Setting query");
     client.query(query, values, (error, result) => {
-      console.log("call client");
       done();
-      console.log("Done");
       if (error) {
         res.status(400).json({error});
-        console.log("ERROR");
         return;
       }
-      console.log("HERE?");
       res.status(202).send(result.rows[0]);
     });
   });
@@ -113,7 +105,7 @@ app.delete('/api/reservations/:id', function (req, res) {
 app.get('/api/gallery', function (req, res, next) {
   
   pool.connect(function(err, client, done) {
-      if(err){
+      if (err){
           console.log(err);
           throw err;
       } 
@@ -253,5 +245,3 @@ app.post('/api/question/send', function(req, res, next) {
 });
 
 app.listen(process.env.PORT || 8080);
-
-

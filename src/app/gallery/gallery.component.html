@@ -1,1 +1,4 @@
-<ngx-gallery class="gallery" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+<div class="gallery-allignment">
+    <ngx-gallery *ngIf="!noImages" class="gallery" [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    <div *ngIf="noImages" class="noImages">{{ 'gallery.noImages' | translate }}</div>
+</div>

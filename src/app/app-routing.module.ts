@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutPageComponent } from '../app/pages/about/about.component';
-import { CommonModule } from '@angular/common';
-import { GalleryPageComponent } from 'src/app/pages/gallery/gallery.component';
 import { DestinationPageComponent } from 'src/app/pages/destination/destination.component';
 import { ReservationsPageComponent } from 'src/app/pages/reservations/reservations.component';
 import { AdminComponent } from 'src/app/admin/admin.component';
@@ -11,10 +9,11 @@ import { ReservationsAdminComponent } from 'src/app/admin/reservations-admin/res
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './guards/auth-guard.service';
 import { QuestionComponent } from './pages/question/question.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutPageComponent},
-  { path: 'gallery', component: GalleryPageComponent},
+  { path: 'gallery', component: GalleryComponent},
   { path: 'destination', component: DestinationPageComponent},
   { path: 'reservations', component: ReservationsPageComponent },
   { path: 'login', component: LoginComponent },

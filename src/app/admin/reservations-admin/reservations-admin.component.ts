@@ -68,5 +68,4 @@ export class ReservationsAdminComponent implements OnInit {
   public clearError(): void {
     this.errorMessage = '';
   }
-
 }

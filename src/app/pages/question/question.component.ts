@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { QuestionModel } from 'src/models/question.model';
 import { QuestionService } from 'src/app/services/question.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,13 +8,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.scss']
 })
-export class QuestionComponent implements OnInit {
+export class QuestionComponent {
 
   public model: QuestionModel = new QuestionModel();
   constructor(private questionService: QuestionService, private snackBar: MatSnackBar) {}
-
-  ngOnInit() {
-  }
 
   public async sendQuestion(): Promise<void> {
     let result = await this.questionService.sendQuestion(this.model);

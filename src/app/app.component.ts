@@ -11,9 +11,9 @@ export class AppComponent {
   
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'pl']);
-    translate.setDefaultLang('en');
+    translate.setDefaultLang('pl');
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|pl/) ? browserLang : 'en');
+    translate.use(browserLang.match(/en|pl/) ? browserLang : 'pl');
   }
 }

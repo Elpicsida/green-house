@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
@@ -8,16 +8,13 @@ import { UserService } from '../services/user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public user: string;
   public password: string;
   public isErrorMessageDisplayed: boolean;
 
   constructor(private loginService: LoginService, private _router: Router, private userService: UserService) { }
-
-  ngOnInit() {
-  }
 
   public async login(): Promise<void> {
     let output = await this.loginService.authenticate(this.user, this.password);

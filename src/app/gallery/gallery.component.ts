@@ -10,8 +10,9 @@ import { GalleryService } from '../services/gallery.service';
 export class GalleryComponent implements OnInit {
     galleryOptions: NgxGalleryOptions[];
     galleryImages: NgxGalleryImage[] = [];
+    public noImages: boolean;
 
-    constructor(private galleryService: GalleryService) {}
+    constructor(private galleryService: GalleryService) { }
 
     async ngOnInit(): Promise<void> {
 
@@ -31,6 +32,7 @@ export class GalleryComponent implements OnInit {
           ];
 
         const items = await this.galleryService.getGalleryItems();
+        this.noImages = items.length == 0;
         items.map(x => {
             this.galleryImages.push({
                 small: x.Url,

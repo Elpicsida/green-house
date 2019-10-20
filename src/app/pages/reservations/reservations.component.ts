@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { Component, ViewChild, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { Moment } from 'moment';
 import { MatCalendar } from '@angular/material';
 
@@ -11,8 +11,8 @@ import { ReservationService } from 'src/app/services/reservation.service';
   styleUrls: ['./reservations.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ReservationsPageComponent implements OnInit {
-
+export class ReservationsPageComponent {
+  
   @ViewChild('calendar', null)
   calendar: MatCalendar<Moment>;
   selectedDate: Moment;
@@ -30,10 +30,6 @@ export class ReservationsPageComponent implements OnInit {
       this.cd.detectChanges();
       this.calendar.updateTodaysDate();
     });
-  
-  }
-
-   ngOnInit() {
   }
 
   public dateClass: (d: Moment) => any;

@@ -4,16 +4,14 @@ import { AppComponent } from './app.component';
 import { FooterMainComponent } from './footer/footer-main/footer-main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutPageComponent } from './pages/about/about.component';
-import { GalleryPageComponent } from './pages/gallery/gallery.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MatTabsModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
+import { MatTabsModule, MatSidenavModule, MatToolbarModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import { ContentMainComponent } from './content/content-main/content-main.component';
-import { IconComponent } from './icon/icon.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatInputModule} from '@angular/material/input'
@@ -63,11 +61,9 @@ export const MY_FORMATS = {
     AppComponent,
     FooterMainComponent,
     AboutPageComponent,
-    GalleryPageComponent,
     GalleryComponent,
     MainNavComponent,
     ContentMainComponent,
-    IconComponent,
     DestinationPageComponent,
     ReservationsPageComponent,
     AdminComponent,
@@ -84,7 +80,6 @@ export const MY_FORMATS = {
     MatSidenavModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,
     LayoutModule,
     MatListModule,
     HttpClientModule,

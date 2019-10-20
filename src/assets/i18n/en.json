@@ -38,6 +38,9 @@
       "phone": "Phone",
       "question": "Question",
       "send" : "Send"
+    },
+    "gallery": {
+      "noImages": "Brak obrazów"
     }
  }
   

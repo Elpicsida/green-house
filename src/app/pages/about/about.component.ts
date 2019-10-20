@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,12 +6,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutPageComponent implements OnInit {
+export class AboutPageComponent {
 
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
+  constructor() {}
 }

@@ -7,9 +7,7 @@ import { map } from 'rxjs/operators';
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-
-  constructor(private _authService: LoginService, private _router: Router) {
-  }
+  constructor(private _authService: LoginService, private _router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LinkModel } from '../../../models/link.model';
 import { FooterItem } from '../../../models/footer-item.model';
 
@@ -7,11 +7,7 @@ import { FooterItem } from '../../../models/footer-item.model';
   templateUrl: './footer-main.component.html',
   styleUrls: ['./footer-main.component.scss']
 })
-export class  FooterMainComponent implements OnInit {
+export class  FooterMainComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
-
 }

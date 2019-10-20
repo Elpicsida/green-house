@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { UserService } from '../services/user.service';
 
@@ -7,12 +7,9 @@ import { UserService } from '../services/user.service';
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss']
 })
-export class AdminComponent implements OnInit {
+export class AdminComponent {
 
   constructor(private loginService: LoginService, private userService: UserService) { }
-
-  ngOnInit() {
-  }
 
   public async logout(): Promise<void> {
     await this.loginService.logout();

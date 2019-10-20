@@ -9,9 +9,7 @@ export class DestinationPageComponent implements OnInit {
 
   public width: number;
 
-  constructor() { 
-    
-  }
+  constructor() {}
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
