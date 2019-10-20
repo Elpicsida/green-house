@@ -1,13 +1,13 @@
-<p>Gallery Admin Panel</p>
-<button *ngIf="!isNewItemCreating" mat-flat-button color="primary" class="addNewButton" (click)="addNewItem()">Add</button>
+<p>Panel Administracyjny - Galeria</p>
+<button *ngIf="!isNewItemCreating" mat-flat-button color="primary" class="addNewButton" (click)="addNewItem()">Dodaj</button>
 <div class="item" *ngFor="let item of galleryItems;let k = index">
     <mat-form-field  class="example-full-width">
-        <input matInput placeholder="Image URL" required [(ngModel)]="item.Url" [disabled]="item.Id > -1">
+        <input matInput placeholder="Adres URL do obrazu" required [(ngModel)]="item.Url" [disabled]="item.Id > -1">
     </mat-form-field>
-    <button *ngIf="item.Id > -1" mat-flat-button color="warn" (click)="deleteItem(k)">Delete</button>
-    <button *ngIf="item.Id == -1" mat-flat-button color="primary" (click)="saveChanges()">Save</button>
-    <button *ngIf="item.Id > -1" mat-flat-button color="primary" class="view-button" (click)="openDialog(item.Url)">View</button>
+    <button *ngIf="item.Id > -1" mat-flat-button color="warn" (click)="deleteItem(k)">Usuń</button>
+    <button *ngIf="item.Id == -1" mat-flat-button color="primary" (click)="saveChanges()">Zapisz</button>
+    <button *ngIf="item.Id > -1" mat-flat-button color="primary" class="view-button" (click)="openDialog(item.Url)">Podgląd</button>
 </div>
 <div>
-    <button mat-flat-button color="primary" routerLink="/admin" class="backButton">Go back to admin page</button>
+    <button mat-flat-button color="primary" routerLink="/admin" class="backButton">Wróć do Strony Administracyjnej</button>
 </div>

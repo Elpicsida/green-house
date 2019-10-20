@@ -3,7 +3,8 @@
       "about": "About",
       "reservations": "Reservations",
       "gallery": "Gallery",
-      "destination": "Destination"
+      "destination": "Destination",
+      "contactForm": "Contact"
     },
     "language": {
       "polish": "Polish",
@@ -18,7 +19,9 @@
     "footer": {
       "contact": "Contact",
       "mobile-phone": "Mobile Phone",
-      "follow": "Follow Us"
+      "follow": "Follow Us",
+      "phone": "Mobile Phone",
+      "location": "Location"
     },
     "attractions": {
       "dinosaur-park": "Dinosaur's Park",
@@ -29,6 +32,12 @@
       "chapel": "Chapel",
       "calvary": "Calvary",
       "church": "Church"
+    },
+    "questionForm": {
+      "name": "Name",
+      "phone": "Phone",
+      "question": "Question",
+      "send" : "Send"
     }
  }
   

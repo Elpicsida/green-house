@@ -1,3 +1,5 @@
+@import './../../constants';
+
 .top-panel {
   max-width: 100%;
   position: relative;
@@ -16,7 +18,7 @@ mat-toolbar .no-right-margin {
 mat-toolbar a {
   display: inline-block;
   margin: 0 10px;
-  color: white;
+  color: $header-text-color;
   text-decoration: none;
   padding-top: 14px;
 }
@@ -33,7 +35,7 @@ mat-toolbar a {
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #3f51b5;
+  background-color: $header-background-color;
 }
 
 .header li a {
@@ -45,7 +47,7 @@ mat-toolbar a {
 
 .header li a:hover,
 .header .menu-btn:hover {
-  color: gray;
+  color: $header-text-hover-color;
 }
 
 .header .logo {
@@ -53,7 +55,7 @@ mat-toolbar a {
   float: left;
   font-size: 26px;
   text-decoration: none;
-  color: white;
+  color: $header-text-color;
   margin: 0px;
   padding-left: 16px;
 }
@@ -64,6 +66,12 @@ mat-toolbar a {
   clear: both;
   max-height: 0;
   transition: max-height .2s ease-out;
+}
+
+.menuButton {
+  height: 60px;
+  color: white;
+  font-size: 20px;
 }
 
 /* menu icon */
@@ -78,7 +86,7 @@ mat-toolbar a {
 }
 
 .header .menu-icon .navicon {
-  background: white;
+  background: $header-text-color;
   display: block;
   height: 2px;
   position: relative;
@@ -88,7 +96,7 @@ mat-toolbar a {
 
 .header .menu-icon .navicon:before,
 .header .menu-icon .navicon:after {
-  background: white;
+  background: $header-text-color;
   content: '';
   display: block;
   height: 100%;
@@ -132,7 +140,13 @@ mat-toolbar a {
   top: 0;
 }
 
-/* 48em = 768px */
+li.active {
+  border-bottom: 0px;
+  border-left: 5px solid $footer-background-color;
+  a {
+    color: $header-text-color;
+  }
+}
 
 @media (min-width: 768px) {
   .header li {
@@ -157,6 +171,14 @@ mat-toolbar a {
   .header .logo {
     padding-left: 0px;
   }  
+
+  li.active {
+    border-left: 0px;
+    border-bottom: 3px solid $footer-background-color;
+    a {
+      color: $header-text-color;
+    }
+  }
 }
 
 .flag-icon {

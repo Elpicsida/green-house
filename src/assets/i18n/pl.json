@@ -3,7 +3,8 @@
       "about": "O nas",
       "reservations": "Rezerwacje",
       "gallery": "Galeria",
-      "destination": "Jak trafić"
+      "destination": "Jak trafić",
+      "contactForm": "Kontakt"
     },
     "language": {
       "polish": "Polski",
@@ -18,7 +19,9 @@
     "footer": {
       "contact": "Kontakt",
       "mobile-phone": "Telefon komórkowy",
-      "follow": "Śledź nas"
+      "follow": "Śledź nas",
+      "phone": "Telefon",
+      "location": "Lokalizacja"
     },
     "attractions": {
       "dinosaur-park": "Park Dinozaurów",
@@ -29,5 +32,11 @@
       "chapel": "Kapliczka",
       "calvary": "Kalwaria",
       "church": "Kościół"
+    },
+    "questionForm": {
+      "name": "Imię",
+      "phone": "Telefon",
+      "question": "Pytanie",
+      "send" : "Wyślij"
     }
   }

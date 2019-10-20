@@ -10,6 +10,7 @@ import { GalleryAdminComponent } from 'src/app/admin/gallery-admin/gallery-admin
 import { ReservationsAdminComponent } from 'src/app/admin/reservations-admin/reservations-admin.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { QuestionComponent } from './pages/question/question.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutPageComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'destination', component: DestinationPageComponent},
   { path: 'reservations', component: ReservationsPageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'question', component: QuestionComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/gallery', component: GalleryAdminComponent, canActivate: [AuthGuardService] },
   { path: 'admin/reservations', component: ReservationsAdminComponent, canActivate: [AuthGuardService] },

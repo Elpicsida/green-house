@@ -1,0 +1,25 @@
+<form class="question-main" #questionForm="ngForm">
+    <mat-form-field  class="example-full-width">
+            <input #name name="name" matInput placeholder="{{'questionForm.name' | translate }}" required [(ngModel)]="model.name" />
+        </mat-form-field>
+
+    <mat-form-field  class="example-full-width">
+        <input #email type="email" name="email" matInput placeholder="E-mail" required email [(ngModel)]="model.email" />
+    </mat-form-field>
+
+    <mat-form-field  class="example-full-width">
+        <input #telephone name="phone" pattern="^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$" matInput placeholder="{{'questionForm.phone' | translate }}" required phone [(ngModel)]="model.phone" />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <textarea #content name="content" matInput placeholder="{{'questionForm.question' | translate }}" 
+        matTextareaAutosize
+        required [(ngModel)]="model.content"></textarea>
+    </mat-form-field>
+
+    <div>        
+        <button type="submit" mat-flat-button color="primary" class="button"
+        [disabled]="!questionForm.valid"
+        (click)="sendQuestion();questionForm.reset()">{{'questionForm.send' | translate }}</button>
+    </div>
+</form>

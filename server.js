@@ -4,6 +4,7 @@ const path = require('path');
 const history = require('connect-history-api-fallback');
 const pg = require('pg');
 const cookieParser = require('cookie-parser');
+var nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -22,6 +23,7 @@ var pool = pg.Pool(config);
 app.use(history({
   verbose: true
 }));
+
 
 app.use(cookieParser());
 app.use(express.static(__dirname + '/dist/green-house/'));
@@ -205,14 +207,49 @@ app.post('/api/login', function (req, res, next) {
   }
 
   if (credentials.login === process.env.ADMIN_USER &&
-      credentials.pass === process.env.ADMIN_PASS) {
-        res.cookie('auth_token', process.env.AUTH_TOKEN, { maxAge: 20 *60 * 1000, httpOnly: true, sameSite: 'strict' });
+    credentials.pass === process.env.ADMIN_PASS) {
+      res.cookie('auth_token', process.env.AUTH_TOKEN, { maxAge: 20 *60 * 1000, httpOnly: true, sameSite: 'strict' });
         res.send({ loggedIn: true });
   }
   else {
     res.clearCookie("auth_token");
     res.send({ loggedIn: false });
   }
+});
+
+app.post('/api/logout', function (req, res, next) {
+  if (req.cookies.auth_token) {
+    res.clearCookie("auth_token");
+  }
+  res.send({ loggedIn: false });
+});
+
+app.post('/api/question/send', function(req, res, next) {
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
+    }
+  });
+  
+  var mailOptions = {
+    from: process.env.MAIL_USER,
+    to: process.env.MAIL_TARGET,
+    subject: 'Question from Website',
+    text: req.body.name + " napisał : " + req.body.content,
+    html: '<div><p>E-mail: ' + req.body.email + '</p></div>' +
+          '<div><p>Użytkownik: '+ req.body.name + '</p></div>' +
+          '<div><p>'+ req.body.content +'</p></div>'
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      res.send({ success: false});
+    } else {
+      res.send({ success: true});
+    }
+  });
 });
 
 app.listen(process.env.PORT || 8080);

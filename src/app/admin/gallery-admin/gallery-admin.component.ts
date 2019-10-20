@@ -33,7 +33,6 @@ export class GalleryAdminComponent implements OnInit {
     }
 
     public async saveChanges(): Promise<void> {
-      console.log(this.galleryItems);
       var el = this.galleryItems.filter(x => x.Id === -1)[0];
       if (el.Url) {
         this.isNewItemCreating = false;

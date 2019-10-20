@@ -6,10 +6,12 @@
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label #menuButton class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
-      <li><a (click)="linkClicked()" routerLink="/about">{{ 'links.about' | translate }}</a></li>
-      <li><a (click)="linkClicked()" routerLink="/gallery">{{ 'links.gallery' | translate }}</a></li>
-      <li><a (click)="linkClicked()" routerLink="/destination">{{ 'links.destination' | translate }}</a></li>
-      <li><a (click)="linkClicked()" routerLink="/reservations" class="no-right-margin">{{ 'links.reservations' | translate }}</a></li>
+      <li *ngIf="user.loggedIn" routerLinkActive="active"><a (click)="linkClicked()" routerLink="/admin">Admin</a></li>
+      <li routerLinkActive="active"><a (click)="linkClicked()" routerLink="/question">{{ 'links.contactForm' | translate }}</a></li>
+      <li routerLinkActive="active"><a (click)="linkClicked()" routerLink="/about">{{ 'links.about' | translate }}</a></li>
+      <li routerLinkActive="active"><a (click)="linkClicked()" routerLink="/gallery">{{ 'links.gallery' | translate }}</a></li>
+      <li routerLinkActive="active"><a (click)="linkClicked()" routerLink="/destination">{{ 'links.destination' | translate }}</a></li>
+      <li routerLinkActive="active"><a (click)="linkClicked()" routerLink="/reservations" class="no-right-margin">{{ 'links.reservations' | translate }}</a></li>
     </ul>
   </header> 
 </mat-toolbar>

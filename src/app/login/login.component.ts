@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   public password: string;
   public isErrorMessageDisplayed: boolean;
 
-  constructor(private loginService: LoginService, private _router: Router) { }
+  constructor(private loginService: LoginService, private _router: Router, private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     if (output.loggedIn) {
       this.isErrorMessageDisplayed = false;
       this._router.navigateByUrl('/admin');
+      this.userService.loggedIn = true;
     }
     else {
       this.isErrorMessageDisplayed = true;

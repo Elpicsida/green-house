@@ -17,4 +17,8 @@ export class LoginService {
   public validate(): Observable<boolean> {
     return this.httpClient.post<boolean>("/api/validate", {});
   }
+
+  public logout(): Promise<void> {
+    return this.httpClient.post<void>("api/logout", {}).toPromise();
+  }
 }

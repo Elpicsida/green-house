@@ -1,11 +1,15 @@
+@import './../..//../constants';
+
 .container {
     padding-top: 20px;
-    padding-bottom: 260px; //footer Height
+    padding-bottom: 268px; //footer Height
     max-width: 1100px;
     margin: 0px auto;
+    background-color: $content-background-color;
 }
 
 .content-wrap {
     margin-left: 16px;
     margin-right: 16px;
+    min-height: 300px;
 }

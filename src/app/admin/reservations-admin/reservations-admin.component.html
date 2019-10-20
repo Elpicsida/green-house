@@ -1,19 +1,20 @@
-<p>Gallery Admin Panel</p>
-    <button *ngIf="!isNewItemCreating" mat-flat-button color="primary" class="addNewButton" (click)="addNewItem()">Add</button>
+<p>Panel Administracyjny - Rezerwacje</p>
+    <button *ngIf="!isNewItemCreating" mat-flat-button color="primary" class="addNewButton" (click)="addNewItem()">Dodaj</button>
     <div class="item" *ngFor="let item of reservationItems;let k = index">
+        <div *ngIf="errorMessage" class="error-message">{{errorMessage}}</div>
         <mat-form-field>
-            <input (click)="i.open()" [(ngModel)]="item.DateFrom" matInput [matDatepicker]="i" placeholder="Choose a date" [disabled]="item.Id > -1">
+            <input (click)="i.open()" (dateChange)="clearError()" [(ngModel)]="item.DateFrom" matInput [matDatepicker]="i" placeholder="Wybierz datę" [disabled]="item.Id > -1">
             <mat-datepicker-toggle matSuffix [for]="i"></mat-datepicker-toggle>
             <mat-datepicker #i></mat-datepicker>
         </mat-form-field>
         <mat-form-field>
-            <input (click)="j.open()" [(ngModel)]="item.DateTo" matInput [matDatepicker]="j" placeholder="Choose a date" [disabled]="item.Id > -1">
+            <input (click)="j.open()" (dateChange)="clearError()" [(ngModel)]="item.DateTo" matInput [matDatepicker]="j" placeholder="Wybierz datę" [disabled]="item.Id > -1">
             <mat-datepicker-toggle matSuffix [for]="j"></mat-datepicker-toggle>
             <mat-datepicker #j></mat-datepicker>
         </mat-form-field>
-        <button *ngIf="item.Id > -1" mat-flat-button color="warn" (click)="deleteItem(k)">Delete</button>
-        <button *ngIf="item.Id == -1" mat-flat-button color="primary" (click)="saveChanges()">Save</button>
+        <button *ngIf="item.Id > -1" mat-flat-button color="warn" (click)="deleteItem(k)">Usuń</button>
+        <button *ngIf="item.Id == -1" mat-flat-button color="primary" (click)="saveChanges()">Zapisz</button>
     </div>
 <div>
-    <button mat-flat-button color="primary" routerLink="/admin" class="backButton">Go back to admin page</button>
+    <button mat-flat-button color="primary" routerLink="/admin" class="backButton">Wróć do Strony Administracyjnej</button>
 </div>

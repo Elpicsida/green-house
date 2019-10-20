@@ -1,0 +1,22 @@
+.example-full-width {
+    width: 100%;
+    max-width: 500px;
+}
+
+.question-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.button { 
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+  
+::ng-deep .mat-snack-bar-container {
+    background-color: cadetblue;
+    color: blanchedalmond;
+  }

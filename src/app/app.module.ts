@@ -1,14 +1,13 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FooterColumnComponent } from './footer/footer-column/footer-column.component';
 import { FooterMainComponent } from './footer/footer-main/footer-main.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AboutPageComponent } from './pages/about/about.component';
 import { GalleryPageComponent } from './pages/gallery/gallery.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { MatTabsModule, MatSidenavModule, MatToolbarModule,MatIconModule, MatButtonModule  } from '@angular/material';
+import { MatTabsModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
@@ -25,7 +24,6 @@ import  { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { ReservationsPageComponent } from './pages/reservations/reservations.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import { FooterSocialComponent } from 'src/app/footer/footer-social/footer-social.component';
 import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { GalleryAdminComponent } from './admin/gallery-admin/gallery-admin.component';
@@ -34,6 +32,8 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import { FormsModule } from '@angular/forms';
 import { MomentUtcDateAdapter } from './adapters/moment-utc-date-adapter';
 import { GalleryAdminViewComponent } from './admin/gallery-admin-view/gallery-admin-view.component';
+import { QuestionComponent } from './pages/question/question.component';
+import { UserService } from 'src/app/services/user.service';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient, './assets/i18n/', '.json');
@@ -62,8 +62,6 @@ export const MY_FORMATS = {
   declarations: [
     AppComponent,
     FooterMainComponent,
-    FooterColumnComponent,
-    FooterSocialComponent,
     AboutPageComponent,
     GalleryPageComponent,
     GalleryComponent,
@@ -76,7 +74,8 @@ export const MY_FORMATS = {
     LoginComponent,
     GalleryAdminComponent,
     ReservationsAdminComponent,
-    GalleryAdminViewComponent
+    GalleryAdminViewComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +95,7 @@ export const MY_FORMATS = {
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    MatSnackBarModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -108,8 +108,8 @@ export const MY_FORMATS = {
   providers: [
     { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig },
     {provide: DateAdapter, useClass: MomentUtcDateAdapter, deps: [MAT_DATE_LOCALE]},
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS}
-    
+    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    UserService
     ],
   bootstrap: [AppComponent]
 })

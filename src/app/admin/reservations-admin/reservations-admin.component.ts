@@ -17,19 +17,28 @@ export class ReservationsAdminComponent implements OnInit {
 
   public reservationItems: ReservationModel[] = [];
   public isNewItemCreating: boolean;
+  public errorMessage: string = '';
 
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit() {
-    this.reservationService.getReservations().then((items : ReservationModel[]) => {
-        this.reservationItems = items;
-    });
+    // this.reservationService.getReservations().then((items : ReservationModel[]) => {
+    //     this.reservationItems = items;
+    // });
   }
 
   public async saveChanges(): Promise<void> {
-    console.log(this.reservationItems);
-    this.isNewItemCreating = false;
     var el = this.reservationItems.filter(x => x.Id === -1)[0];
+    if (!el.DateFrom || !el.DateTo) {
+      this.errorMessage = 'Obie daty powinny zostać wypełnione';
+      return;
+    }
+    
+    if (el.DateFrom > el.DateTo) {
+      this.errorMessage = 'Druga data powinna być późniejsza niż pierwsza';
+      return;
+    }
+    this.isNewItemCreating = false;
     var result = await this.reservationService.createReservation(el);
     el.Id = result.Id;
   }
@@ -54,6 +63,10 @@ export class ReservationsAdminComponent implements OnInit {
         
     }
     return dateArray;
+  }
+
+  public clearError(): void {
+    this.errorMessage = '';
   }
 
 }
