@@ -22,9 +22,9 @@ export class ReservationsAdminComponent implements OnInit {
   constructor(private reservationService: ReservationService) { }
 
   ngOnInit() {
-    // this.reservationService.getReservations().then((items : ReservationModel[]) => {
-    //     this.reservationItems = items;
-    // });
+    this.reservationService.getReservations().then((items : ReservationModel[]) => {
+        this.reservationItems = items;
+    });
   }
 
   public async saveChanges(): Promise<void> {
