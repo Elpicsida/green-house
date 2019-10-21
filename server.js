@@ -228,7 +228,7 @@ app.post('/api/question/send', function(req, res, next) {
   var mailOptions = {
     from: process.env.MAIL_USER,
     to: process.env.MAIL_TARGET,
-    subject: 'Question from Website',
+    subject: 'Formularz kontaktowy - Zielony Domek',
     text: req.body.name + " napisał : " + req.body.content,
     html: '<div><p>E-mail: ' + req.body.email + '</p></div>' +
           '<div><p>Użytkownik: '+ req.body.name + '</p></div>' +
